@@ -178,7 +178,18 @@
         hexo s  //hexo 本地运行</code></pre><p>八、在浏览器地址栏中输入：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 进行访问 (建议用chrome内核的浏览器)</p>
 <hr>
 <h2 id="部署至远端"><a href="#部署至远端" class="headerlink" title="部署至远端"></a>部署至远端</h2><pre><code>考虑到学生党可流动资金不足，买不起服务器和域名，所以本次部署，我们就来好好地利用github这个平台 :) </code></pre><p>一、在github上创建一个账户</p>
-<p><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/git_config.png" alt="Image text"></p>
+<p>1.登录github(网址:<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a> 创建账号方法如下图)<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/sign_in.png" alt="Image text"><br>2.创建完账号后，sign in</p>
+<p><img src alt="Image text"></p>
+<p>3.创建存放blog的仓库<br><img src alt="Image text"></p>
+<p>4.回到“Git Bash”中，移动到Blog存放的根目录，如我的为/f/blog/，故命令为</p>
+<pre><code>cd /f/blog #根据个人存放blog根目录的位置进行修改</code></pre><p>5.编辑blog根目录的_config.yml文件，在文件末尾添加上传的方式、git仓库地址、分支等信息</p>
+<pre><code>对应命令：vim _config.yml</code></pre><p>修改的内容如图<br><img src alt="Image text"></p>
+<p>6.将hexo部署到远端</p>
+<p>对应命令:</p>
+<pre><code>hexo clean //清空多余信息
+hexo init //hexo 初始化
+hexo g //生成相关信息
+hexo d //将hexo推到对应仓库</code></pre><p>如果执行hexo d 时报如下错误：<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/error_blog.png" alt="Image text"><br>解决方法如下：<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/git_config.png" alt="Image text"></p>
 <hr>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://www.codesheep.cn" target="_blank" rel="noopener">www.codesheep.cn</a></p>
 
