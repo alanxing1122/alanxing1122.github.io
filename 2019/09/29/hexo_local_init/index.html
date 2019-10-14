@@ -6,21 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://alanxing1122.github.io">
-  <title>Win10下搭建hexo的方法及我所遇到的问题 | Alan的博客</title>
+  <title>Win10下搭建hexo和部署到远端的方法及我所遇到的“坑” | Alan的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前期准备安装Nodejs：https://nodejs.org/en/ （请选择LTS，即长期支持版本） 安装git：https://git-scm.com/ 以上两个工具自定义安装即可  本地部署一、在电脑本地新建一文件夹（如我在F盘创建一个名为blog的文件夹F:\blog） 二、打开Git Bash 三、移动到对应文件夹的根目录（以我为例，即是f盘的blog目录） 相关命令：cd /f/bl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Win10下搭建hexo的方法及我所遇到的问题">
+<meta property="og:title" content="Win10下搭建hexo和部署到远端的方法及我所遇到的“坑”">
 <meta property="og:url" content="https://alanxing1122.github.io/2019/09/29/hexo_local_init/index.html">
 <meta property="og:site_name" content="Alan的博客">
 <meta property="og:description" content="前期准备安装Nodejs：https://nodejs.org/en/ （请选择LTS，即长期支持版本） 安装git：https://git-scm.com/ 以上两个工具自定义安装即可  本地部署一、在电脑本地新建一文件夹（如我在F盘创建一个名为blog的文件夹F:\blog） 二、打开Git Bash 三、移动到对应文件夹的根目录（以我为例，即是f盘的blog目录） 相关命令：cd /f/bl">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/sign_in.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/signin.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/make_a_repository.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/create_a_new_repository.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/config_yml.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/vim_config.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/error_blog.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/git_config.png">
-<meta property="og:updated_time" content="2019-10-14T14:24:16.623Z">
+<meta property="og:updated_time" content="2019-10-14T14:40:23.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Win10下搭建hexo的方法及我所遇到的问题">
+<meta name="twitter:title" content="Win10下搭建hexo和部署到远端的方法及我所遇到的“坑”">
 <meta name="twitter:description" content="前期准备安装Nodejs：https://nodejs.org/en/ （请选择LTS，即长期支持版本） 安装git：https://git-scm.com/ 以上两个工具自定义安装即可  本地部署一、在电脑本地新建一文件夹（如我在F盘创建一个名为blog的文件夹F:\blog） 二、打开Git Bash 三、移动到对应文件夹的根目录（以我为例，即是f盘的blog目录） 相关命令：cd /f/bl">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/sign_in.png">
   
@@ -151,7 +156,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Win10下搭建hexo的方法及我所遇到的问题
+      Win10下搭建hexo和部署到远端的方法及我所遇到的“坑”
     </h1>
   
 
@@ -182,17 +187,19 @@
 <hr>
 <h2 id="部署至远端"><a href="#部署至远端" class="headerlink" title="部署至远端"></a>部署至远端</h2><pre><code>考虑到学生党可流动资金不足，买不起服务器和域名，所以本次部署，我们就来好好地利用github这个平台 :) </code></pre><p>一、在github上创建一个账户</p>
 <p>1.登录github(网址:<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a> 创建账号方法如下图)<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/sign_in.png" alt="Image text"><br>2.创建完账号后，sign in</p>
-<p><img src alt="Image text"></p>
-<p>3.创建存放blog的仓库<br><img src alt="Image text"></p>
+<p><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/signin.png" alt="Image text"></p>
+<p>3.创建存放blog的仓库<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/make_a_repository.png" alt="Image text"><br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/create_a_new_repository.png" alt="Image text"></p>
 <p>4.回到“Git Bash”中，移动到Blog存放的根目录，如我的为/f/blog/，故命令为</p>
-<pre><code>cd /f/blog #根据个人存放blog根目录的位置进行修改</code></pre><p>5.编辑blog根目录的_config.yml文件，在文件末尾添加上传的方式、git仓库地址、分支等信息</p>
-<pre><code>对应命令：vim _config.yml</code></pre><p>修改的内容如图<br><img src alt="Image text"></p>
+<pre><code>cd /f/blog #根据个人存放blog根目录的位置进行修改</code></pre><p><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/config_yml.png" alt="Image text"><br>5.编辑blog根目录的_config.yml文件，在文件末尾添加上传的方式、git仓库地址、分支等信息</p>
+<pre><code>对应命令：vim _config.yml</code></pre><p>修改的内容如图<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/vim_config.png" alt="Image text"><br>修改后切记要保存，先按键盘上的“ESC”键再按冒号再输入wq 然后回车</p>
 <p>6.将hexo部署到远端</p>
 <p>对应命令:</p>
 <pre><code>hexo clean //清空多余信息
 hexo init //hexo 初始化
 hexo g //生成相关信息
-hexo d //将hexo推到对应仓库</code></pre><p>如果执行hexo d 时报如下错误：<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/error_blog.png" alt="Image text"><br>解决方法如下：<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/git_config.png" alt="Image text"></p>
+hexo d //将hexo推到对应仓库</code></pre><p>三、我遇到的“坑”</p>
+<p>△如果执行hexo d 时报如下错误：<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/error_blog.png" alt="Image text"><br>是因为你的git没有配置好</p>
+<p>△解决方法如下：<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/git_config.png" alt="Image text"></p>
 <hr>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://www.codesheep.cn" target="_blank" rel="noopener">www.codesheep.cn</a></p>
 
