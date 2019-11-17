@@ -16,10 +16,14 @@
 <meta property="og:site_name" content="Alan的博客">
 <meta property="og:description" content="前言本文基于近期计算机网络学习作业的整理，在整理的过程中，我个人对内部路由协议有一点小小心得，现在此和大家分享一下，希望能加深大家对内部路由协议的理解，也希望大家能共同进步。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-17T11:29:45.399Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/static.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/RIP.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/OSPF.png">
+<meta property="og:updated_time" content="2019-11-17T11:36:22.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈内部路由协议 -- static、RIP、OSPF、default">
 <meta name="twitter:description" content="前言本文基于近期计算机网络学习作业的整理，在整理的过程中，我个人对内部路由协议有一点小小心得，现在此和大家分享一下，希望能加深大家对内部路由协议的理解，也希望大家能共同进步。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/static.png">
   
     <link rel="alternative" href="/atom.xml" title="Alan的博客" type="application/atom+xml">
   
@@ -169,7 +173,7 @@
 
 2、OSPF：使用最短路径算法来维持一个链路状态数据库，路由交换信息的时候采用洪泛法，因为要给这个AS划分不同区域，从而减少了整个AS内的通信量，所以它适用于较大规模的网络，管理员同样只需知道每个路由上所接的子网即可，不同的是，需将不同区域的子网划分。</code></pre><h4 id="三、默认路由"><a href="#三、默认路由" class="headerlink" title="三、默认路由"></a>三、默认路由</h4><pre><code>其实默认路由可以归纳到静态路由那，因为默认路由的配置方法和静态的基本一致，之所以我要拿出来单独说，是因为它只需要知道自己的网关出口，其余可不知，像极了考前裸考盲目抓考点的你。而静态路由必须知道目的网络和目的网络的子网掩码以及下一跳。</code></pre><hr>
 <h2 id="配置方法"><a href="#配置方法" class="headerlink" title="配置方法"></a>配置方法</h2><p>（基于思科模拟器）</p>
-<h4 id="一、静态路由-1"><a href="#一、静态路由-1" class="headerlink" title="一、静态路由"></a>一、静态路由</h4><p><img src alt="Image Text"></p>
+<h4 id="一、静态路由-1"><a href="#一、静态路由-1" class="headerlink" title="一、静态路由"></a>一、静态路由</h4><p>静态路由拓扑图<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/static.png" alt="Image Text"></p>
 <pre><code>1)配置路由器R1：
 Router&gt;enable
 Router#configure terminal 
@@ -199,10 +203,24 @@ XLRouter2(config-if)#clock rate 9600
 XLRouter2(config-if)#no shutdown
 XLRouter2(config-if)#exit
 XLRouter2(config)#ip route 192.168.123.0 255.255.255.0 10.1.1.1
-XLRouter2#show ip route</code></pre><h4 id="二、动态路由-1"><a href="#二、动态路由-1" class="headerlink" title="二、动态路由"></a>二、动态路由</h4><p><img src alt="Image Text"></p>
-<p>1、RIP：<br>    （随便举个例子）<br>    enable #进入特权模式<br>    config terminal #进入配置模式<br>    interface f0/0 #进入0电口<br>    ip address 192.168.110.1 255.255.255.0<br>    no shutdown<br>    interface f0/1 #进入1电口<br>    ip address 192.168.120.1 255.255.255.0<br>    no shutdown<br>    exit<br>    router rip<br>    network 192.168.110.0<br>    network 192.168.120.0<br>    version 2 #使用版本2</p>
-<p><img src alt="Image Text"></p>
-<p>2、OSPF：</p>
+XLRouter2#show ip route</code></pre><h4 id="二、动态路由-1"><a href="#二、动态路由-1" class="headerlink" title="二、动态路由"></a>二、动态路由</h4><p>1、RIP：</p>
+<p>RIP拓扑图<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/RIP.png" alt="Image Text"></p>
+<pre><code>（随便举个例子）
+
+enable #进入特权模式
+config terminal #进入配置模式
+interface f0/0 #进入0电口
+ip address 192.168.110.1 255.255.255.0 
+no shutdown
+interface f0/1 #进入1电口
+ip address 192.168.120.1 255.255.255.0
+no shutdown
+exit
+router rip
+network 192.168.110.0 
+network 192.168.120.0 
+version 2 #使用版本2</code></pre><p>2、OSPF：</p>
+<p>OSPF拓扑图<br><img src="https://raw.githubusercontent.com/alanxing1122/alanxing1122.github.io/master/assets/blog_photos/OSPF.png" alt="Image Text"></p>
 <pre><code>三层交换机：
 en
 config
@@ -534,6 +552,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cisco</a>
               </li>
              
@@ -551,14 +577,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
             
             <div class="clearfix"></div>
